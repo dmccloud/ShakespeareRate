@@ -19,7 +19,7 @@ function App() {
       const reviews = await axios({
         method: "get",
         url: "https://shakespeare.podium.com/api/reviews",
-        headers: { "x-api-key": "H3TM28wjL8R4#HTnqk?c" },
+        headers: { "x-api-key": `${process.env.REACT_APP_API_KEY}` },
       });
 
       // sets state to hold list of reviews

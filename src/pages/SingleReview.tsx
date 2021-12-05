@@ -30,23 +30,28 @@ interface SingleReviewProps {
 export const SingleReview: React.FC<SingleReviewProps> = ({ ReviewType }) => {
   const [data, setData] = useState<typeof ReviewType>();
   const location = useLocation();
-  const id = location.pathname.substring(1);
-  console.log(id);
+  const id = location.pathname.substring(1); // gets the id from the route for use in
+  // fetching the single quote
 
+  // Fetching this data might be redundant, since we have the
+  // review from the first page... but wanted to make some
+  // use out of both routes provided
   useEffect(() => {
     const fetchData = async () => {
-      // fetches list of reviews
+      // fetches single review
       const reviews = await axios({
         method: "get",
         url: `https://shakespeare.podium.com/api/reviews/${id}`,
-        headers: { "x-api-key": "H3TM28wjL8R4#HTnqk?c" },
+        headers: { "x-api-key": `${process.env.REACT_APP_API_KEY}` },
       });
 
-      // sets state to hold list of reviews
+      // sets state to hold review data
       setData(reviews.data);
     };
     fetchData();
   }, [id]);
+
+  // If no data, show loading, else show review data
   return !data ? (
     <EuiPage aria-label="review-area">
       <EuiPageBody paddingSize="l">
