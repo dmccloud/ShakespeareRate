@@ -23,7 +23,7 @@ export const NavBar: React.FC<NavBarProps> = () => {
           title="William SVG"
           aria-label="william's outline"
         />
-        Shakespeare's Stories
+        Shakespeare Rate
       </EuiHeaderSectionItem>
 
       {/* Links on the right of the nav bar */}

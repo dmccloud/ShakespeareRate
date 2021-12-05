@@ -4,7 +4,7 @@ import App from "./App";
 
 test("renders Shakespeare's Stories", () => {
   render(<App />);
-  const linkElement = screen.getByText("Shakespeare's Stories");
+  const linkElement = screen.getByText("Shakespeare Rate");
   expect(linkElement).toBeInTheDocument();
 });
 
