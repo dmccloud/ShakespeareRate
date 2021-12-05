@@ -16,6 +16,7 @@ interface ReviewCardProps {
 export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
   return (
     <EuiCard
+      aria-label="review-card"
       layout="horizontal"
       icon={<EuiAvatar size="xl" name={review.author} />}
       title={review.author}

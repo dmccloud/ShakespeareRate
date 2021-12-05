@@ -13,12 +13,14 @@ function App() {
   // Fetches list of review data
   useEffect(() => {
     const fetchData = async () => {
+      // fetches list of reviews
       const reviews = await axios({
         method: "get",
         url: "https://shakespeare.podium.com/api/reviews",
         headers: { "x-api-key": "H3TM28wjL8R4#HTnqk?c" },
       });
-      console.log(reviews.data);
+
+      // sets state to hold list of reviews
       setData(reviews.data);
     };
     fetchData();

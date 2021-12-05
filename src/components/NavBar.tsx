@@ -14,9 +14,14 @@ interface NavBarProps {}
 
 export const NavBar: React.FC<NavBarProps> = () => {
   return (
-    <EuiHeader>
+    <EuiHeader position="fixed">
       <EuiHeaderSectionItem border="right">
-        <EuiIcon type={williamSvg} size="xl" title="William SVG" />
+        <EuiIcon
+          type={williamSvg}
+          size="xl"
+          title="William SVG"
+          aria-label="william's outline"
+        />
         Shakespeare's Stories
       </EuiHeaderSectionItem>
 
