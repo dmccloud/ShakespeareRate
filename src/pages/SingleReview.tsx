@@ -1,14 +1,21 @@
 import {
+  EuiCard,
   EuiFlexGrid,
+  EuiFlexGroup,
+  EuiFlexItem,
+  EuiIcon,
   EuiLoadingContent,
   EuiPage,
   EuiPageBody,
   EuiPageHeader,
   EuiSpacer,
+  EuiText,
 } from "@elastic/eui";
 import axios from "axios";
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import StarRatings from "react-star-ratings";
 
 interface SingleReviewProps {
   ReviewType?: {
@@ -55,8 +62,48 @@ export const SingleReview: React.FC<SingleReviewProps> = ({ ReviewType }) => {
     <EuiPage aria-label="review-area">
       <EuiPageBody paddingSize="l">
         <EuiPageHeader pageTitle={data.author} bottomBorder />
-
-        <EuiFlexGrid columns={1}></EuiFlexGrid>
+        <EuiFlexGroup gutterSize="xl">
+          <EuiFlexItem>
+            <EuiCard
+              layout="horizontal"
+              icon={<EuiIcon size="xl" type={"quote"} />}
+              title={"Quote"}
+              description={`"${data.body}""`}
+            />
+          </EuiFlexItem>
+          <EuiFlexItem>
+            <EuiCard
+              layout="horizontal"
+              icon={<EuiIcon size="l" type={"starFilledSpace"} />}
+              titleSize="xs"
+              title={"Rating"}
+              description={
+                <div>
+                  <StarRatings rating={data.rating} numberOfStars={5} /> {"("}
+                  {data.rating}
+                  {")"}
+                </div>
+              }
+            />
+          </EuiFlexItem>
+          <EuiFlexItem>
+            <EuiCard
+              layout="horizontal"
+              icon={<EuiIcon size="l" type={"calendar"} />}
+              titleSize="xs"
+              title={"Rating Date"}
+              description={
+                <EuiText>
+                  <h3>
+                    {moment(data.publish_date, "YYYY-MM-DDTHH:mm:ss").format(
+                      "MM/DD/YYYY hh:mmA"
+                    )}
+                  </h3>
+                </EuiText>
+              }
+            />
+          </EuiFlexItem>
+        </EuiFlexGroup>
       </EuiPageBody>
     </EuiPage>
   );

@@ -2,6 +2,8 @@ import { EuiAvatar, EuiCard, EuiText } from "@elastic/eui";
 import moment from "moment";
 
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import StarRatings from "react-star-ratings";
 
 interface ReviewCardProps {
   review: {
@@ -14,6 +16,7 @@ interface ReviewCardProps {
 }
 
 export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
+  const navigate = useNavigate();
   return (
     <EuiCard
       aria-label="review-card"
@@ -39,11 +42,18 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
             </h2>
           </EuiText>
           <EuiText>
-            <h2>Rating: {review.rating} / 5</h2>
+            <h2>
+              Rating: <StarRatings rating={review.rating} numberOfStars={5} />
+              {"("}
+              {review.rating}
+              {")"}
+            </h2>
           </EuiText>
         </div>
       }
-      onClick={() => {}}
+      onClick={() => {
+        navigate(`/${review.id}`);
+      }}
     />
   );
 };

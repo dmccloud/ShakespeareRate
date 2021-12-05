@@ -29,8 +29,13 @@ export const NavBar: React.FC<NavBarProps> = () => {
       {/* Links on the right of the nav bar */}
       <EuiHeaderSectionItem>
         <EuiHeaderLinks aria-label="App navigation links">
-          <EuiHeaderLink isActive>Home</EuiHeaderLink>
-          <EuiHeaderLink iconType="help">Help</EuiHeaderLink>
+          <EuiHeaderLink
+            onClick={() => {
+              window.location.href = `/`;
+            }}
+          >
+            Home
+          </EuiHeaderLink>
         </EuiHeaderLinks>
       </EuiHeaderSectionItem>
     </EuiHeader>
