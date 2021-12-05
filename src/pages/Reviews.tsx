@@ -1,6 +1,7 @@
 import {
   EuiFlexGrid,
   EuiFlexItem,
+  EuiLoadingContent,
   EuiPage,
   EuiPageBody,
   EuiPageHeader,
@@ -40,7 +41,10 @@ export const Reviews: React.FC<ReviewsProps> = ({ data }) => {
               })
             ) : (
               // if no data, render loading
-              <div>Loading...</div>
+              <div>
+                <div>Loading...</div>
+                <EuiLoadingContent lines={3} />
+              </div>
             )
           }
         </EuiFlexGrid>

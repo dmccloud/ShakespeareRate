@@ -16,6 +16,7 @@ export const NavBar: React.FC<NavBarProps> = () => {
   return (
     <EuiHeader position="fixed">
       <EuiHeaderSectionItem border="right">
+        {/* Shakeaspear's outline  */}
         <EuiIcon
           type={williamSvg}
           size="xl"
@@ -25,10 +26,10 @@ export const NavBar: React.FC<NavBarProps> = () => {
         Shakespeare's Stories
       </EuiHeaderSectionItem>
 
+      {/* Links on the right of the nav bar */}
       <EuiHeaderSectionItem>
         <EuiHeaderLinks aria-label="App navigation links">
           <EuiHeaderLink isActive>Home</EuiHeaderLink>
-
           <EuiHeaderLink iconType="help">Help</EuiHeaderLink>
         </EuiHeaderLinks>
       </EuiHeaderSectionItem>

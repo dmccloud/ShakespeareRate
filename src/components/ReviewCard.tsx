@@ -21,6 +21,7 @@ export const ReviewCard: React.FC<ReviewCardProps> = ({ review }) => {
       icon={<EuiAvatar size="xl" name={review.author} />}
       title={review.author}
       description={
+        // formats date to be human readable
         <div>
           <EuiText>
             <h3>
